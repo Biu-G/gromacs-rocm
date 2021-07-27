@@ -85,7 +85,7 @@ macro(gmx_detect_gpu)
         if (NOT DEFINED GMX_DETECT_GPU_COUNT_ROCM_SMI)
             # try to find the rocm-smi binary
             # TODO add location hints
-            find_program(_rocm_smi "/opt/rocm/bin/rocm-smi")
+            find_program(_rocm_smi "/opt/rocm/bin/rocminfo")
             if (_rocm_smi)
                 set(GMX_DETECT_GPU_COUNT_ROCM_SMI 0)
                 # execute rocm-smi -L to get a short list of GPUs available
@@ -97,7 +97,7 @@ macro(gmx_detect_gpu)
                     # convert string with newlines to list of strings
                     string(REGEX REPLACE "\n" ";" _rocm_smi_out "${_rocm_smi_out}")
                     foreach(_line ${_rocm_smi_out})
-                        if (_line MATCHES "^GPU\[[0-9]+\]")
+                        if (_line MATCHES "^GPU-\[[0-9]+\]")
                             math(EXPR GMX_DETECT_GPU_COUNT_ROCM_SMI "${GMX_DETECT_GPU_COUNT_ROCM_SMI}+1")
                         endif()
                     endforeach()
@@ -119,6 +119,7 @@ macro(gmx_detect_gpu)
             # Requires lspci and for GPU names to be fetched from the central
             # PCI ID db if not available locally.
             if (NOT DEFINED GMX_DETECT_GPU_COUNT_LSPCI AND GMX_DETECT_GPU_COUNT EQUAL 0)
+				message("ROCM GIVES ZERO, CONTINUING WITH LSPCI")
                 set(GMX_DETECT_GPU_COUNT_LSPCI 0)
                 exec_program(lspci ARGS -q
                     OUTPUT_VARIABLE _lspci_out
@@ -135,7 +136,7 @@ macro(gmx_detect_gpu)
                     string(REGEX REPLACE "\n" ";" _lspci_out "${_lspci_out}")
                     foreach(_line ${_lspci_out})
                         string(TOUPPER "${_line}" _line_upper)
-                        if (_line_upper MATCHES ".*VGA.*AMD/ATI.*")
+                        if (_line_upper MATCHES ".*AMD/ATI.*GL-XL.*")
                             math(EXPR GMX_DETECT_GPU_COUNT_LSPCI "${GMX_DETECT_GPU_COUNT_LSPCI}+1")
                             # Try to parse out the device name which should be
                             # included in the lspci -q output between []-s
