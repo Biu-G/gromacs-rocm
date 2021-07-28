@@ -1,4 +1,4 @@
-# [Gromacs](https://github.com/gromacs/gromacs) that can be accelerated at AMD GPU by [ROCm](https://www.amd.com/en/graphics/servers-solutions-rocm)
+# [Gromacs](https://github.com/gromacs/gromacs) that can be accelerated at AMD GPUs like [MI100](https://www.amd.com/en/products/server-accelerators/instinct-mi100) by [ROCm](https://www.amd.com/en/graphics/servers-solutions-rocm)
 
 ![](https://img.shields.io/badge/GPU-MI100-blue)
 ![](https://img.shields.io/badge/Speed-A100%201.3X-red)
@@ -9,13 +9,13 @@
 
 ## GPU acquirement
 
-#### AMD Instinct series: [MI100](https://www.amd.com/en/products/server-accelerators/instinct-mi100) / MI50 (especially fast)
-#### other AMD GPU supporting ROCm
+#### [AMD Instinct Accelerators](https://www.amd.com/en/graphics/servers-radeon-instinct-mi) : [MI100](https://www.amd.com/en/products/server-accelerators/instinct-mi100) / MI50 (especially fast)
+#### other AMD GPU supporting [ROCm](https://www.amd.com/en/graphics/servers-solutions-rocm)
 
 ## System acquirement
 
-#### Centos 8.3 / Ubuntu 18.04 with ROCm 4.2 installed (vertified)
-#### other Linux system capable of equipping with ROCm
+#### Centos 8.3 / Ubuntu 18.04 with [ROCm](https://www.amd.com/en/graphics/servers-solutions-rocm) 4.2 installed (vertified)
+#### other Linux system capable of equipping with [ROCm](https://www.amd.com/en/graphics/servers-solutions-rocm)
 
 ## installation guide
 ```
