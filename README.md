@@ -35,7 +35,7 @@ MI100 = A100 1.3X
 ![](adh_dodec.png)
 
 ## BUG with your own system?
-#### Welcome to raise up an ISSUE or contact through jessi.xiao@ucloud.cn
+#### Welcome to raise up an [ISSUE](https://github.com/Biu-G/gromacs-rocm/issues) or contact through jessi.xiao@ucloud.cn
 
 ## external links
 #### initial Gromacs repo
