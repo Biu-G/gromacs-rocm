@@ -32,7 +32,10 @@ MI100 = V100S 2X
 MI100 = A100 1.3X
 2*MI100 = MI100 1.2X
 ```
-![](./resources/adh_dodec.png)
+![](adh_dodec.png)
+
+## BUG with your own system?
+#### Welcome to raise up an ISSUE or contact through jessi.xiao@ucloud.cn
 
 ## external links
 #### initial Gromacs repo
